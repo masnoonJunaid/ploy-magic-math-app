@@ -54,6 +54,7 @@ curl -X GET "http://localhost:3000/api/magic_math?n=5"
 
 
 ## File Structure
+```
 magic-math-app/
     │── src/
      │── app/
