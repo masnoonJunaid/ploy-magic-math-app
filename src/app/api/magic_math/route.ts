@@ -9,11 +9,14 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ error: "Please enter a valid non-negative integer" }, { status: 400 });
     }
 
-    function magicMath(N: number): number {
+    function magicMathMemoized(N: number, memo: Record<number, number> = {}): number {
+        if (N in memo) return memo[N];
         if (N === 0) return 0;
         if (N === 1) return 1;
-        return magicMath(N - 1) + magicMath(N - 2) + N;
+
+        memo[N] = magicMathMemoized(N - 1, memo) + magicMathMemoized(N - 2, memo) + N;
+        return memo[N];
     }
 
-    return NextResponse.json({ result: magicMath(N) });
+    return NextResponse.json({ result: magicMathMemoized(N) });
 }
