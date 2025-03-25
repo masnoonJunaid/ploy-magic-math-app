@@ -16,21 +16,39 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+# Magic Math API (Next.js App Router)
 
-To learn more about Next.js, take a look at the following resources:
+## Overview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project implements a **Magic Math** calculator using **Next.js App Router** and exposes it as an API endpoint. The API computes a sequence based on the formula:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+where:  
+- **magic_math(0) = 0**  
+- **magic_math(1) = 1**  
 
-## Deploy on Vercel
+The API is designed using **Next.js App Router**, utilizing the `next/server` module for optimized request handling.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Benefits of Using Next.js App Router
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **File-Based Routing:** API routes are organized in the `/app/api/` directory, reducing boilerplate.
+- **Edge-Optimized APIs:** Next.js App Router APIs can run at the **edge** for improved performance.
+- **Simplified API Handling:** Uses `NextRequest` and `NextResponse` for efficient request management.
+- **Serverless or Hybrid Support:** Can be deployed as serverless functions or run on a Node.js backend.
+
+
+## File Structure
+magic-math-app/
+    │── src/
+     │── app/
+        │   ├── api/
+        │   │   ├── magic_math/
+        │   │   │   ├── route.ts  # API logic
+        │   ├── page.tsx          # UI Component
+        ├── components/
+            ├── magic_ui.tsx
+│── package.json
+│── next.config.js
+│── tsconfig.json
+│── README.md             # Documentation
